@@ -1,0 +1,29 @@
+volumes:
+  SchemaAware_AI_Agent_postgres_storage:
+
+networks:
+  demo:
+
+services:
+  postgres:
+    image: postgres
+    networks: ['demo']
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    env_file:
+    - ../.env
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+    volumes:
+      - SchemaAware_AI_Agent_postgres_storage:/var/lib/postgresql/data
+      - ../database/northwind.sql:/docker-entrypoint-initdb.d/northwind.sql
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -h localhost -U ${POSTGRES_USER} -d ${POSTGRES_DB}']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+      

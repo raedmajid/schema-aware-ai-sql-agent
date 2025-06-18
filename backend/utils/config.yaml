@@ -1,0 +1,83 @@
+# config.yaml
+
+RBAC_RULES:
+  admin:
+    us_states: ["state_id", "state_name", "state_abbr", "state_region"]
+    customers: ["customer_id", "company_name", "contact_name", "contact_title", "address", "city", "region", "postal_code", "country", "phone", "fax"]
+    orders: ["order_id", "customer_id", "employee_id", "order_date", "required_date", "shipped_date", "ship_via", "freight", "ship_name", "ship_address", "ship_city", "ship_region", "ship_postal_code", "ship_country"]
+    employees: ["employee_id", "last_name", "first_name", "title", "title_of_courtesy", "birth_date", "hire_date", "address", "city", "region", "postal_code", "country", "home_phone", "extension", "photo", "notes", "reports_to", "photo_path"]
+    shippers: ["shipper_id", "company_name", "phone"]
+    products: ["product_id", "product_name", "supplier_id", "category_id", "quantity_per_unit", "unit_price", "units_in_stock", "units_on_order", "reorder_level", "discontinued"]
+    order_details: ["order_id", "product_id", "unit_price", "quantity", "discount"]
+    categories: ["category_id", "category_name", "description", "picture"]
+    suppliers: ["supplier_id", "company_name", "contact_name", "contact_title", "address", "city", "region", "postal_code", "country", "phone", "fax", "homepage"]
+    region: ["region_id", "region_description"]
+    territories: ["territory_id", "territory_description", "region_id"]
+    employee_territories: ["employee_id", "territory_id"]
+    customer_demographics: ["customer_type_id", "customer_desc"]
+    customer_customer_demo: ["customer_id", "customer_type_id"]
+
+  employee:
+    orders: ["order_id", "customer_id", "employee_id", "order_date", "required_date", "shipped_date", "ship_via", "freight", "ship_name", "ship_address", "ship_city", "ship_region", "ship_postal_code", "ship_country"]
+    customers: ["customer_id", "company_name", "contact_name", "contact_title", "address", "city", "region", "postal_code", "country", "phone", "fax"]
+    products: ["product_id", "product_name", "category_id", "unit_price", "units_in_stock", "discontinued"]
+    shippers: ["shipper_id", "company_name", "phone"]
+    order_details: ["order_id", "product_id", "unit_price", "quantity", "discount"]
+    employees: ["employee_id", "first_name", "last_name", "title", "region", "hire_date", "reports_to", "region"]
+
+  customer:
+    orders: ["order_id", "customer_id", "order_date", "required_date", "shipped_date", "ship_via", "freight", "ship_name", "ship_address", "ship_city", "ship_region", "ship_postal_code", "ship_country"]
+    order_details: ["order_id", "product_id", "unit_price", "quantity", "discount"]
+    products: ["product_id", "product_name", "category_id", "unit_price"]
+
+RLS_RULES:
+  customer: "customer_id = '{user_id}'"
+  employee: "employee_id = '{user_id}'"
+
+USER_SETTINGS:
+  USER_ROLE: "admin" # Options: admin, employee, customer
+  USER_ID: "4"
+  USERNAME: "Maggie"
+
+SQL_INJECTION_PATTERNS:
+  - '--|#'
+  - ';(?!\s*$)'
+  - '\b(DROP|DELETE|INSERT|UPDATE|ALTER|EXEC)\b'
+  - '\bUNION\b(?!(\s+SELECT))'
+  - '\bOR\s+1\s*=\s*1\b'
+
+SENSITIVE_COLUMNS:
+  customers: ["contact_name", "phone", "address", "postal_code", "country"]
+  employees: ["birth_date", "home_phone", "notes"]
+  orders: ["customer_id", "employee_id"]
+
+LLM_PROVIDER: "openai"  # Options: openai, llama, llama_local, ollama, openrouter
+
+OPENROUTER:
+  API_KEY: "${OPENROUTER_API_KEY}"
+  #MODEL: "deepseek/deepseek-r1-distill-llama-70b:free"
+  #MODEL: "anthropic/claude-3.5-sonnet"
+  MODEL: "anthropic/claude-3.7-sonnet"
+  #MODEL: "google/gemini-2.0-flash-001"
+  #MODEL : "deepseek/deepseek-r1"
+  #MODEL: "meta-llama/llama-3.3-70b-instruct:free"
+  #MODEL : "qwen/qwq-32b:free"
+  #MODEL : "deepseek/deepseek-r1-distill-llama-70b:free"
+  BASE_URL: "https://openrouter.ai/api/v1"
+
+OPENAI:
+  API_KEY: "${OPENAI_API_KEY}"
+  #MODEL: "o3-mini-2025-01-31"
+  #MODEL: "gpt-4"
+  MODEL: "gpt-4o"
+
+LLAMA_LOCAL:
+  MODEL_PATH: "/path/to/local/llama/model" # Change to the path of your local Llama model
+
+OLLAMA: 
+ #MODEL: "deepseek-r1:8b"
+  #MODEL: "qwen2.5-coder:7b"
+  #MODEL : "llama3.2:latest" 
+  MODEL : "deepseek-r1:1.5b"
+
+max_memory_length: 5 # Set to 0 for unlimited messages in memory

@@ -1,0 +1,23 @@
+# This is a requirements file for a Python project
+# This file is used to install the required packages for the project
+# Run the following command to install the required packages
+# pip install -r requirements.txt
+# If you are using a virtual environment, make sure to activate it before running the command
+# If you are using a conda environment, you can create a new environment with the required packages using the following command
+# conda create --name myenv --file requirements.txt
+# If you are using a Jupyter notebook, you can install the required packages using the following command
+# !pip install -r requirements.txt
+fastapi==0.115.12
+langchain==0.3.22
+langchain_openai==0.3.12
+ollama==0.4.7
+pandas==2.2.3
+pydantic==2.11.1
+python-dotenv==1.1.0
+PyYAML==6.0.2
+Requests==2.32.3
+SQLAlchemy==2.0.37
+sqlparse==0.5.3
+streamlit==1.43.2
+transformers==4.47.1
+uvicorn==0.34.0
