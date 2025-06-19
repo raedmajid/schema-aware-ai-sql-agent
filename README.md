@@ -14,7 +14,7 @@ It turns plain English into SQL — safely — with full guardrails in place.
 Built entirely in Python with open-source tools, it’s designed for environments where **security, compliance, and accuracy matter**.
 
 🎬 **Watch the Walkthrough Video**  
-👉 [https://www.youtube.com/watch?v=of6CHk0Q_B0](https://www.youtube.com/watch?v=of6CHk0Q_B0)
+👉 https://youtu.be/8PF6nWXB8iE
 
 ---
 
