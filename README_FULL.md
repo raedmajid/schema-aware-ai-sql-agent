@@ -40,7 +40,7 @@ Built with open-source tools like **LangChain**, **FastAPI**, and **Streamlit**,
 
 ## 🎥 Full Video Walkthrough
 
-[![Watch the video](https://www.youtube.com/watch?v=of6CHk0Q_B0))](https://www.youtube.com/watch?v=of6CHk0Q_B0)
+[![Watch the video]https://youtu.be/8PF6nWXB8iE
 
 ---
 
