@@ -39,7 +39,7 @@ A high-level view from UI to LLM to SQL execution:
 
 ## 🚀 Quickstart
 
-Prefer a visual walkthrough? Watch the [full setup & architecture demo here](https://www.youtube.com/watch?v=of6CHk0Q_B0)
+Prefer a visual walkthrough? Watch the [full setup & architecture demo here](https://youtu.be/8PF6nWXB8iE)
 
 ```bash
 git clone https://github.com/raedmajid/schema-aware-ai-sql-agent
